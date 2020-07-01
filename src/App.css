@@ -25,6 +25,8 @@ body {
   padding: 3px;
 }
 
+/* ----- Header section ----- */
+
 .App-header {
   background-color: #1a1a1a;
   width: 100%;
@@ -34,13 +36,6 @@ body {
   padding: 0px 21px;
   grid-template: 1fr / 88% 1fr 1fr;
   align-items: center;
-}
-
-.App-main {
-  width: 100%;
-  height: 438px;
-  border-bottom: 1px solid rgba(131, 130, 130, 0.3);
-  position: relative;
 }
 
 .LogoSvg {
@@ -99,7 +94,7 @@ body {
   background-color: #212121;
   position: absolute;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   list-style: none;
   overflow: hidden;
   color: rgb(211, 211, 211);
@@ -122,6 +117,159 @@ body {
 .headerMenuListItem:hover {
   background-color: #00b6ff;
 }
+
+/* ----- Main section ----- */
+
+.App-main {
+  width: 100%;
+  height: 438px;
+  border-bottom: 1px solid rgba(131, 130, 130, 0.3);
+  position: relative;
+  display: grid;
+  grid-template: 1fr / 52% 1fr;
+}
+
+.sliderSection {
+  height: 100%;
+  width: 100%;
+  border-left: 1px solid rgba(131, 130, 130, 0.3);
+  border-right: 1px solid rgba(131, 130, 130, 0.3);
+}
+
+.workSection {
+  height: 100%;
+  width: 100%;
+  border-right: 1px solid rgba(131, 130, 130, 0.3);
+  display: grid;
+  grid-template: 55% 53px 1fr / 1fr;
+}
+
+.dataSection {
+  height: 87%;
+  width: 78%;
+  display: grid;
+  grid-template: repeat(6, 1fr) / repeat(2, 1fr);
+  align-self: center;
+  align-items: center;
+  justify-content: left;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-left: 36px;
+  color: #5a5959;
+}
+
+.dataSection button {
+  width: 45%;
+  height: 30px;
+  margin-left: -12px;
+  margin-top: -8px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px #5a5959;
+  color: #5a5959;
+  cursor: pointer;
+}
+
+.dataSection button:focus {
+  outline: none;
+}
+
+.dataSection button:hover {
+  background-color: #dcdcdc;
+}
+
+.dataParagraph {
+  font-size: 0.9rem;;
+}
+
+.infoSection {
+  color: white;
+  background-color: #00b6ff;
+  display: grid;
+}
+
+.infoButton {
+  height: 100%;
+  width: 53px;
+  align-self: start;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-area: 1 / 1;
+  background-color: #00abf0;
+  border: none;
+  cursor: pointer;
+}
+
+.infoButton:focus {
+  outline: none;
+}
+
+.infoButton:hover {
+  background-color: #059ce2;
+}
+
+.infoButton h3 {
+  font-size: 1.6rem;
+  font-family: serif;
+  font-weight: normal;
+  color: white
+}
+
+.infoText {
+  height: 100%;
+  width: 100%;
+  align-self: center;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-area: 1 / 1;
+}
+
+.infoWindow {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  padding: 20px;
+}
+
+.infoWindowHidden {
+  display: none;
+}
+
+.infoWindowActive {
+  display: initial;
+}
+
+.infoWindow p {
+  height: 34px;
+  width: 78%;
+  font-size: 0.9rem;
+  font-family: serif;
+  margin-top: 34px;
+  font-weight: bold;
+  color: #757575;
+}
+
+.returnButton {
+  font-family: monospace;
+  font-size: 1rem;
+  color: #9e9fa0d6;
+  background-color: transparent;
+  border: none;
+}
+
+.returnButton:focus {
+  outline: none;
+}
+
+.returnButton:hover {
+  color: #676768d6;
+}
+
+/* ----- Footer section ----- */
 
 .App-footer {
   width: 100%;
@@ -158,16 +306,6 @@ body {
   cursor: pointer;
 }
 
-/* .footerListItem:hover {
-  cursor: pointer;
-  background-color: rgb(223, 222, 222);
-} */
-
-/* .footerListItem:active {
-  border-bottom: 3px solid #00b6ff;
-  color: white;
-  background-color: #00b6ff;
-} */
 .footerListItemSelected{
   border-bottom: 3px solid #00b6ff;
 }
@@ -176,11 +314,6 @@ body {
   color: white;
   background-color: #00b6ff;
 }
-
-/* .footerListItem:visited {
-  border-bottom: 3px solid #00b6ff;
-  color:black;
-} */
 
 .footerListItem p {
   width: 70%;

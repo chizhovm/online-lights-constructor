@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Slider from './slider';
+import Work from './work';
+import InfoWindowText from '../textResourse/infoWindowText'
+
+const mainState = {
+  infoWindowText: {
+    classlist: 'infoWindow infoWindowHidden'
+  }
+}
+
+const returnButton = '< Вернуться';
 
 const Main = (props) => {
+
+  const [ infoWindowTextClasslist, setInfoWindowTextClasslist ] = useState(mainState.infoWindowText.classlist);
 
   const li = props.headerLinkArray.map((el) => {
     return (
@@ -11,9 +24,18 @@ const Main = (props) => {
   });
 
   return <div className ='App-main'>
+    <Slider />
+    <Work
+      workSection = { props.workSection }
+      setInfoWindowTextClasslist = { setInfoWindowTextClasslist }
+    />
     <ul className = { props.headerMenuClassList }>
       { li }
     </ul>
+    <div className = { infoWindowTextClasslist } >
+      <button className = 'returnButton' onClick = {() => setInfoWindowTextClasslist('infoWindow infoWindowHidden')}>{ returnButton }</button>
+      <InfoWindowText />
+    </div>
   </div>
 };
 

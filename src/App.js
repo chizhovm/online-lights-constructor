@@ -6,13 +6,30 @@ import Footer from './components/footer';
 
 const userState = {
   itemsInTheBasket: 1,
+  workSection: {
+    class: 'Standart',
+    power: 59,
+    luminousIntensity: 3459,
+    numberOfLamps: 7.5,
+    lampPower: 40,
+    warranty: 3,
+    assembly: 'Да',
+    price: 2594
+  },
 }
 
-const appState = {
+const headerState = {
   headerMenuClassList: 'headerMenuList',
   headerLinkArray: [ 'Обучающее видео', 'Оформление заказа', 'Оплата', 'Доставка',
     'Гарантия', 'Возврат', 'Контакты', 'Партнерам'
   ],
+};
+
+// const mainState = {
+//   infosection: 
+// }
+
+const footerState = {
   footerLinkArray : [
     {itemName:'Вариант кухни'}, {itemName: 'Размеры'}, {itemName:'Сенсор'}, {itemName:'Питающий кабель'},
     {itemName:'Блок питания'},  {itemName:'Цвет свечения'},  {itemName:'Монтаж'},  {itemName:'Корзина'}
@@ -26,9 +43,10 @@ const appState = {
 
 const App = () => {
   const [ itemsInTheBasket ] = useState(userState.itemsInTheBasket);
-  const [ headerMenuClassList, setHeaderMenuClassList ] = useState(appState.headerMenuClassList);
-  const [ headerLinkArray ] = useState(appState.headerLinkArray);
-  const [ footerLinkArray, setFooterLinkArray ] = useState(appState.footerLinkArray);
+  const [ headerMenuClassList, setHeaderMenuClassList ] = useState(headerState.headerMenuClassList);
+  const [ headerLinkArray ] = useState(headerState.headerLinkArray);
+  const [ footerLinkArray, setFooterLinkArray ] = useState(footerState.footerLinkArray);
+  const [ workSection ] = useState(userState.workSection);
 
   const footerMenuHandler = (linkArray, itemIndex) => {
     linkArray[itemIndex].selected = true;
@@ -57,6 +75,7 @@ const App = () => {
       <Main 
         headerMenuClassList = { headerMenuClassList }
         headerLinkArray = { headerLinkArray }
+        workSection = { workSection }
       />
       <Footer
         footerLinkArray = { footerLinkArray }
