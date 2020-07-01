@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const HeaderMenu = () => {
+const HeaderMenu = (props) => {
+
+  const [ classList, setClassList ] = useState('headerMenu');
+  
+  const revertClassList = () => {
+    setClassList(classList === 'headerMenu' ? 'headerMenu headerMenuActive' : 'headerMenu');
+    props.setHeaderMenuClassList(props.headerMenuClassList === 'headerMenuList' ? 'headerMenuList headerMenuListActive' : 'headerMenuList');
+  };
+  
   return (
-    <div className = 'headerMenu'></div>
+    <div className = { classList } onClick={() => revertClassList()}></div>
   );
 }
 

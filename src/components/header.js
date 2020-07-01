@@ -8,9 +8,12 @@ const Header = (props) => {
     <div className = 'App-header'>
       <Logo />
       <Basket
-      itemsInTheBasket = { props.itemsInTheBasket }
+        itemsInTheBasket = { props.itemsInTheBasket }
       />
-      <HeaderMenu />
+      <HeaderMenu 
+        headerMenuClassList = { props.headerMenuClassList }
+        setHeaderMenuClassList = { props.setHeaderMenuClassList }
+      />
     </div>
   );
 }

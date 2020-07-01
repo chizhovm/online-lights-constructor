@@ -39,13 +39,8 @@ body {
 .App-main {
   width: 100%;
   height: 438px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.App-footer {
-  width: 100%;
-  height: 65px;
-  border-bottom: 3px solid black;
+  border-bottom: 1px solid rgba(131, 130, 130, 0.3);
+  position: relative;
 }
 
 .LogoSvg {
@@ -83,4 +78,112 @@ body {
   width: 24px;
   height: 24px;
   justify-self: center;
+  transition: ease-in-out 0.3s;
+}
+
+.headerMenu:hover {
+  cursor: pointer;
+}
+
+.headerMenuActive {
+  background-image: url(./icons/close.svg);
+}
+
+.headerMenuList {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 319px;
+  height: 0%;
+  transition: ease-in-out 0.3s;
+  background-color: #212121;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  list-style: none;
+  overflow: hidden;
+  color: rgb(211, 211, 211);
+}
+
+.headerMenuListActive {
+  height: 501px;
+}
+
+.headerMenuListItem {
+  width: 100%;
+  height: 100%;
+  border-bottom: #5e5e5e solid 1px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  cursor: pointer;
+}
+
+.headerMenuListItem:hover {
+  background-color: #00b6ff;
+}
+
+.App-footer {
+  width: 100%;
+  height: 63px;
+}
+
+.footerList {
+  list-style: none;
+  margin: 0 auto;
+  width: 94%;
+  height: 100%;
+  display: grid;
+  grid-template: 1fr / repeat(8, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+.footerListItem {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border-right: 1px solid rgba(131, 130, 130, 0.3);
+  color: black;
+}
+
+.footerListItem:first-child {
+  border-left: 1px solid rgba(131, 130, 130, 0.3);
+}
+
+.footerListItem {
+  border-bottom: 3px solid #ff8182;
+  cursor: pointer;
+}
+
+/* .footerListItem:hover {
+  cursor: pointer;
+  background-color: rgb(223, 222, 222);
+} */
+
+/* .footerListItem:active {
+  border-bottom: 3px solid #00b6ff;
+  color: white;
+  background-color: #00b6ff;
+} */
+.footerListItemSelected{
+  border-bottom: 3px solid #00b6ff;
+}
+
+.footerListItemActive {
+  color: white;
+  background-color: #00b6ff;
+}
+
+/* .footerListItem:visited {
+  border-bottom: 3px solid #00b6ff;
+  color:black;
+} */
+
+.footerListItem p {
+  width: 70%;
+  text-align: center;
+  line-height: 0.9rem;
 }
