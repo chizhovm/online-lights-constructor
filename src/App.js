@@ -71,7 +71,6 @@ const App = () => {
       }
       return el;
     }));
-    console.log(footerLinkArray);
   };
 
   const lightsTypeHandler = (lightsTypeArray, itemIndex) => {
