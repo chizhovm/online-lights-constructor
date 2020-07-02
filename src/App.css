@@ -224,6 +224,8 @@ body {
   grid-area: 1 / 1;
 }
 
+
+
 .infoWindow {
   background-color: white;
   width: 100%;
@@ -240,6 +242,8 @@ body {
 .infoWindowActive {
   display: initial;
 }
+
+
 
 .infoWindow p {
   height: 34px;
@@ -287,6 +291,7 @@ body {
   background-position: center;
   position: relative;
   overflow: hidden;
+  transition: ease-in-out 0.3s;
 }
 
 .lightsTypes:hover {
