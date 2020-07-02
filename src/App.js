@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/header';
 import Main from './components/main';
 import Footer from './components/footer';
+import pictures from './components/pictures';
 
 const userState = {
   itemsInTheBasket: 1,
@@ -16,6 +17,11 @@ const userState = {
     assembly: 'Да',
     price: 2594
   },
+  lightsTypeArray: [
+    {type: 'Теплый', checked: true, picture: pictures.warmLight},
+    {type: 'Дневной', checked: false, picture: pictures.dayLight},
+    {type: 'Холодный', checked: false, picture: pictures.coldLight}
+  ]
 }
 
 const headerState = {
@@ -25,18 +31,20 @@ const headerState = {
   ],
 };
 
-// const mainState = {
-//   infosection: 
-// }
-
 const footerState = {
   footerLinkArray : [
     {itemName:'Вариант кухни'}, {itemName: 'Размеры'}, {itemName:'Сенсор'}, {itemName:'Питающий кабель'},
     {itemName:'Блок питания'},  {itemName:'Цвет свечения'},  {itemName:'Монтаж'},  {itemName:'Корзина'}
-  ].map(el => {
-    el.active = false;
-    el.selected = false;
-    el.classlist = 'footerListItem';
+  ].map((el, index) => {
+    if(index === 5) {
+      el.active = true;
+      el.selected = true;
+      el.classlist = 'footerListItem footerListItemSelected footerListItemActive';
+    } else {
+      el.active = false;
+      el.selected = false;
+      el.classlist = 'footerListItem';
+    }
     return el;
   }),
 };
@@ -47,6 +55,7 @@ const App = () => {
   const [ headerLinkArray ] = useState(headerState.headerLinkArray);
   const [ footerLinkArray, setFooterLinkArray ] = useState(footerState.footerLinkArray);
   const [ workSection ] = useState(userState.workSection);
+  const [ lightsTypes, setLightsTypes ] = useState(userState.lightsTypeArray);
 
   const footerMenuHandler = (linkArray, itemIndex) => {
     linkArray[itemIndex].selected = true;
@@ -65,6 +74,15 @@ const App = () => {
     console.log(footerLinkArray);
   };
 
+  const lightsTypeHandler = (lightsTypeArray, itemIndex) => {
+    const newLightsTypeArray = lightsTypeArray.map((el, index) => {
+      if (index === itemIndex) el.checked = true;
+      else el.checked = false;
+      return el;
+    })
+    return setLightsTypes(newLightsTypeArray);
+  };
+
   return (
     <div className="App">
       <Header 
@@ -76,6 +94,8 @@ const App = () => {
         headerMenuClassList = { headerMenuClassList }
         headerLinkArray = { headerLinkArray }
         workSection = { workSection }
+        lightsTypes = { lightsTypes } 
+        lightsTypeHandler = { lightsTypeHandler }
       />
       <Footer
         footerLinkArray = { footerLinkArray }

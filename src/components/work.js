@@ -1,6 +1,7 @@
 import React from 'react';
 import DataSection from './dataSection';
 import InfoSection from './infoSection';
+import LightsConstructorSection from './lightsConstructorSection';
 
 const Work = (props) => {
   return (
@@ -10,6 +11,10 @@ const Work = (props) => {
       />
       <InfoSection 
         setInfoWindowTextClasslist = { props.setInfoWindowTextClasslist }
+      />
+      <LightsConstructorSection 
+      lightsTypes = { props.lightsTypes } 
+      lightsTypeHandler = { props.lightsTypeHandler }
       />
     </div>
   );

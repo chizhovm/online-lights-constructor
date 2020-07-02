@@ -24,10 +24,14 @@ const Main = (props) => {
   });
 
   return <div className ='App-main'>
-    <Slider />
+    <Slider 
+      lightsTypes = { props.lightsTypes }
+    />
     <Work
       workSection = { props.workSection }
       setInfoWindowTextClasslist = { setInfoWindowTextClasslist }
+      lightsTypes = { props.lightsTypes } 
+      lightsTypeHandler = { props.lightsTypeHandler }
     />
     <ul className = { props.headerMenuClassList }>
       { li }

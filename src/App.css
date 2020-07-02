@@ -266,6 +266,82 @@ body {
   color: #676768d6;
 }
 
+.lightsConstructorSection {
+  height: 50%;
+  width: 72%;
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  align-items: center;
+  grid-template: 1fr / repeat(3, 1fr);
+}
+
+.lightsTypes {
+  width: 80%;
+  height: 88%;
+  border-radius: 5px;
+  background-image: url('./pictures/light.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lightsTypes:hover {
+  height: 98%;
+  width: 92%;
+}
+
+.lightsTypesName {
+  height: 30%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(14, 14, 14, 0.5);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.lightsTypesName p {
+  color: white;
+  font-size: 0.8rem;
+}
+
+.lightsTypesCheckbox {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #00abf0;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.lightsTypesCheckboxHidden {
+  display: none;
+}
+
+.lightsTypesCheckbox p {
+  color: white;
+  font-family: monospace;
+}
+
+.sliderSection {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.sliderSection img {
+  width: 90%;
+  border-radius: 5px;
+}
+
 /* ----- Footer section ----- */
 
 .App-footer {
