@@ -18,9 +18,9 @@ const userState = {
     price: 2594
   },
   lightsTypeArray: [
-    {type: 'Теплый', checked: true, picture: pictures.warmLight},
-    {type: 'Дневной', checked: false, picture: pictures.dayLight},
-    {type: 'Холодный', checked: false, picture: pictures.coldLight}
+    {type: 'Теплый', checked: true, picturesArray: pictures.warmLight},
+    {type: 'Дневной', checked: false, picturesArray: pictures.dayLight},
+    {type: 'Холодный', checked: false, picturesArray: pictures.coldLight}
   ]
 }
 

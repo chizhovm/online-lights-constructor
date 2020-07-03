@@ -5,11 +5,11 @@ const LightsConstructorSection = (props) => {
   const lightsTypes = props.lightsTypes.map((el, index) => {
     const checkboxClasslist = el.checked ? 'lightsTypesCheckbox' : 'lightsTypesCheckbox lightsTypesCheckboxHidden';
     return <div className = 'lightsTypes' key = { el.type } onClick = { () => props.lightsTypeHandler(props.lightsTypes, index) } >
-      <div className = {checkboxClasslist}>
+      <div className = { checkboxClasslist }>
         <p>✓</p>
       </div>
       <div className = 'lightsTypesName'>
-        <p>{el.type}</p>
+        <p>{ el.type }</p>
       </div>
     </div>;
   });
