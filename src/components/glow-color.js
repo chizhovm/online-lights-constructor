@@ -17,7 +17,7 @@ const GlowColor = (props) => {
   const [ infoWindowTextClasslist, setInfoWindowTextClasslist ] = useState(glowColorState.infoWindowText.classlist);
 
   return (
-    <>
+    <div className = 'constructorItem'>
       <Slider 
         lightsTypes = { props.lightsTypes }
       />
@@ -31,7 +31,7 @@ const GlowColor = (props) => {
         <button className = 'returnButton' onClick = {() => setInfoWindowTextClasslist('infoWindow hidden')}>{ returnButton }</button>
         <InfoWindowText />
       </div>
-    </>
+    </div>
   );
 }
 

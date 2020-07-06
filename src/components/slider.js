@@ -6,8 +6,6 @@ const Slider = (props) => {
     return el.checked === true;
   });
 
-  console.log(props.lightsTypes[0]);
-
   const [ activePicture, setActivePicture ] = useState(0); 
 
   const picturesHandler = (itemIndex) => {
@@ -21,14 +19,12 @@ const Slider = (props) => {
       <p key = { `sliderNav${index}` } className = {classlist } onClick = {() => picturesHandler(index) }></p>
     )}
   );
-
-  console.log(sliderNav);
  
   return (  
     <div className = 'sliderSection'>
       <div className = 'sliderWrapper'>
         <div className = 'slider'>
-          <div class = 'imageWrapper'>
+          <div className = 'imageWrapper'>
             <img src = { image.picturesArray[activePicture] } alt = { image.type }/>
           </div>
         </div>

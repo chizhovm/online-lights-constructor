@@ -1,20 +1,6 @@
-import React, { useState } from 'react';
-import Slider from './slider';
-import Work from './work';
-import InfoWindowText from '../textResourse/info-window-text'
-import GlowColor from './glow-color';
-
-// const mainState = {
-//   infoWindowText: {
-//     classlist: 'infoWindow hidden'
-//   }
-// }
-
-// const returnButton = '< Вернуться';
+import React from 'react';
 
 const Main = (props) => {
-
-  // const [ infoWindowTextClasslist, setInfoWindowTextClasslist ] = useState(mainState.infoWindowText.classlist);
 
   const li = props.headerLinkArray.map((el) => {
     return (
@@ -24,28 +10,18 @@ const Main = (props) => {
     );
   });
 
+  console.log(props.activeConstructorItem)
+
   return <div className ='App-main'>
-    {/* <Slider 
-      lightsTypes = { props.lightsTypes }
-    />
-    <Work
-      workSection = { props.workSection }
-      setInfoWindowTextClasslist = { setInfoWindowTextClasslist }
-      lightsTypes = { props.lightsTypes } 
-    /> */}
+ 
     <ul className = { props.headerMenuClassList }>
       { li }
     </ul>
-    {/* <div className = { infoWindowTextClasslist } >
-      <button className = 'returnButton' onClick = {() => setInfoWindowTextClasslist('infoWindow hidden')}>{ returnButton }</button>
-      <InfoWindowText />
-    </div> */}
 
-    <GlowColor
+    <props.activeConstructorItem
       workSection = { props.workSection }
       lightsTypes = { props.lightsTypes }
       lightsTypeHandler = { props.lightsTypeHandler }
-      
     />
   </div>
 };

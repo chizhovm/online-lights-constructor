@@ -4,6 +4,14 @@ import Header from './components/header';
 import Main from './components/main';
 import Footer from './components/footer';
 import pictures from './components/pictures';
+import KichenVariant from './components/kitchens-variant';
+import Measurements from './components/measurements';
+import Sensor from './components/sensor';
+import PowerCable from './components/power-cable';
+import PowerSupply from './components/power-supply';
+import GlowColor from './components/glow-color';
+import Assembly from './components/assembly';
+import Basket from './components/basket';
 
 const userState = {
   itemsInTheBasket: 1,
@@ -31,12 +39,14 @@ const headerState = {
   ],
 };
 
-const footerState = {
-  footerLinkArray : [
-    {itemName:'Вариант кухни'}, {itemName: 'Размеры'}, {itemName:'Сенсор'}, {itemName:'Питающий кабель'},
-    {itemName:'Блок питания'},  {itemName:'Цвет свечения'},  {itemName:'Монтаж'},  {itemName:'Корзина'}
+const appState = {
+  constructorItemsArray : [
+    {itemName:'Вариант кухни', itemValue: KichenVariant}, {itemName: 'Размеры', itemValue:  Measurements},
+    {itemName:'Сенсор', itemValue:  Sensor}, {itemName:'Питающий кабель', itemValue:  PowerCable},
+    {itemName:'Блок питания', itemValue:  PowerSupply},  {itemName:'Цвет свечения', itemValue:  GlowColor},
+    {itemName:'Монтаж', itemValue:  Assembly},  {itemName:'Корзина', itemValue:  Basket}
   ].map((el, index) => {
-    if(index === 5) {
+    if(index === 0) {
       el.active = true;
       el.selected = true;
       el.classlist = 'footerListItem footerListItemSelected footerListItemActive';
@@ -53,15 +63,17 @@ const App = () => {
   const [ itemsInTheBasket ] = useState(userState.itemsInTheBasket);
   const [ headerMenuClassList, setHeaderMenuClassList ] = useState(headerState.headerMenuClassList);
   const [ headerLinkArray ] = useState(headerState.headerLinkArray);
-  const [ footerLinkArray, setFooterLinkArray ] = useState(footerState.footerLinkArray);
+  const [ constructorItemsArray, setConstructorItemsArray ] = useState(appState.constructorItemsArray);
+  const [activeConstructorItem, setActiveConstructorItem] = useState(0);
   const [ workSection ] = useState(userState.workSection);
   const [ lightsTypes, setLightsTypes ] = useState(userState.lightsTypeArray);
 
   const footerMenuHandler = (linkArray, itemIndex) => {
     linkArray[itemIndex].selected = true;
     linkArray[itemIndex].classlist = 'footerListItem footerListItemSelected';
-    setFooterLinkArray(linkArray.map((el, index) => {
+    setConstructorItemsArray(linkArray.map((el, index) => {
       if (index === itemIndex) {
+        setActiveConstructorItem(itemIndex);
         el.active = true;
         el.classlist = 'footerListItem footerListItemSelected footerListItemActive';
       } else if(!el.selected) el.classlist = 'footerListItem'
@@ -95,9 +107,11 @@ const App = () => {
         workSection = { workSection }
         lightsTypes = { lightsTypes } 
         lightsTypeHandler = { lightsTypeHandler }
+        activeConstructorItem = {constructorItemsArray[activeConstructorItem].itemValue }
+
       />
       <Footer
-        footerLinkArray = { footerLinkArray }
+        constructorItemsArray = { constructorItemsArray }
         footerMenuHandler = { footerMenuHandler }
       />
     </div>

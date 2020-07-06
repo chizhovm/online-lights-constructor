@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Basket = (props) => {
+const PowerSupply = (props) => {
     return (
       <div className = 'constructorItem'>
-        <p>Basket</p>
+        <p>Power Supply</p>
       </div>
     );
 }
 
-export default Basket;
+export default PowerSupply;

@@ -1,13 +1,13 @@
 import React from 'react';
 import Logo from './logo';
-import Basket from './basket';
+import BasketItem from './basket-item';
 import HeaderMenu from './header-menu';
 
 const Header = (props) => {
   return (
     <div className = 'App-header'>
       <Logo />
-      <Basket
+      <BasketItem
         itemsInTheBasket = { props.itemsInTheBasket }
       />
       <HeaderMenu 

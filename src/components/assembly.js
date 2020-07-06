@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Basket = (props) => {
+const Assembly = (props) => {
     return (
       <div className = 'constructorItem'>
-        <p>Basket</p>
+        <p>Assembly</p>
       </div>
     );
 }
 
-export default Basket;
+export default Assembly;
