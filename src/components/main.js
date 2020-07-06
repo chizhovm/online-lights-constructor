@@ -10,8 +10,6 @@ const Main = (props) => {
     );
   });
 
-  console.log(props.activeConstructorItem)
-
   return <div className ='App-main'>
  
     <ul className = { props.headerMenuClassList }>

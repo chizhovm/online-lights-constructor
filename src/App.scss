@@ -9,6 +9,48 @@
   src: url(fonts/Fontfabric-MullerBold.otf);
  }
 
+ @keyframes Opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin full-size {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin center-position {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+@mixin cover-background-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*-----Variables-----*/
+
+ $blue: #00b6ff;
+ $middle-blue: #00abf0;
+ $deep-blue: #059ce2;
+ $red: #ff8182;
+ $header-menu-font-dark: #5a5959;
+ $header-menu-font-light: #d3d3d3;
+ $general-border: 1px solid rgba(131, 130, 130, 0.3);
+ $transition: ease-in-out 0.3s;
+ $border-small: 3px;
+ $border-big: 5px;
+ $app-height: 438px;
+ $font-small: 0.8rem;
+ $font-middle: 0.9rem;
+
  h1 {
    font-family: Fontfabric-MullerBold;
  }
@@ -45,9 +87,7 @@ body {
 
 .basket-item {
   background-image: url(./icons/basket.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  @include cover-background-image;
   width: 17px;
   height: 17px;
   justify-self: center;
@@ -56,28 +96,21 @@ body {
 .itemsInTheBasket {
   height: 14px;
   width: 14px;
-  background-color: #00b6ff;
+  background-color: $blue;
   border-radius: 50%;
   font-size: 0.5rem;
   margin-top: -7px;
   margin-left: 11px;
-  display: grid;
-  justify-items: center;
-  align-items: center;
+  @include center-position;
 }
 
 .headerMenu {
   background-image: url(./icons/menu.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  @include cover-background-image;
   width: 24px;
   height: 24px;
   justify-self: center;
-  transition: ease-in-out 0.3s;
-}
-
-.headerMenu:hover {
+  transition: $transition;
   cursor: pointer;
 }
 
@@ -86,19 +119,17 @@ body {
 }
 
 .headerMenuList {
-  display: grid;
-  justify-items: center;
-  align-items: center;
+  @include center-position;
   width: 319px;
   height: 0%;
-  transition: ease-in-out 0.3s;
+  transition: $transition;
   background-color: #212121;
   position: absolute;
   right: 0;
   z-index: 1;
   list-style: none;
   overflow: hidden;
-  color: rgb(211, 211, 211);
+  color: $header-menu-font-light;
 }
 
 .headerMenuListActive {
@@ -106,55 +137,41 @@ body {
 }
 
 .headerMenuListItem {
-  width: 100%;
-  height: 100%;
-  border-bottom: #5e5e5e solid 1px;
-  display: grid;
-  align-items: center;
-  justify-items: center;
+  @include full-size;
+  border-bottom: $general-border;
+  @include center-position;
   cursor: pointer;
-}
-
-.headerMenuListItem:hover {
-  background-color: #00b6ff;
+  &:hover {
+    background-color: $blue;
+  }
 }
 
 /* ----- Main section ----- */
 
-@keyframes Opacity {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .App-main {
   width: 100%;
-  height: 438px;
-  border-bottom: 1px solid rgba(131, 130, 130, 0.3);
+  height: $app-height;
+  border-bottom: $general-border;
   position: relative;
 }
 
 .constructorItem {
-  animation: Opacity 0.2s ease-in-out;
+  animation: Opacity $transition;
   position: absolute;
   display: grid;
   grid-template: 1fr / 52% 1fr;
 }
 
 .sliderSection {
-  height: 100%;
-  width: 100%;
-  border-left: 1px solid rgba(131, 130, 130, 0.3);
-  border-right: 1px solid rgba(131, 130, 130, 0.3);
+  @include full-size;
+  border-left: $general-border;
+  border-right: $general-border;
 }
 
 .workSection {
-  height: 438px;
+  height: $app-height;
   width: 100%;
-  border-right: 1px solid rgba(131, 130, 130, 0.3);
+  border-right: $general-border;
   display: grid;
   grid-template: 55% 53px 1fr / 1fr;
 }
@@ -167,40 +184,37 @@ body {
   align-self: center;
   align-items: center;
   justify-content: left;
-  font-size: 0.8rem;
+  font-size: $font-small;
   font-weight: bold;
   margin-left: 36px;
-  color: #5a5959;
-}
-
-.dataSection button {
-  width: 45%;
-  height: 30px;
-  margin-left: -12px;
-  margin-top: -8px;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 2px 2px 2px #5a5959;
-  color: #5a5959;
-  cursor: pointer;
-}
-
-.dataSection button:focus {
-  outline: none;
-}
-
-.dataSection button:hover {
-  background-color: #00b6ff;
-  color: white
+  color: $header-menu-font-dark;
+  button {
+    width: 45%;
+    height: 30px;
+    margin-left: -12px;
+    margin-top: -8px;
+    border: none;
+    border-radius: $border-small;
+    box-shadow: 2px 2px 2px $header-menu-font-dark;
+    color: $header-menu-font-dark;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: $blue;
+      color: white
+    }
+  }
 }
 
 .dataParagraph {
-  font-size: 0.9rem;;
+  font-size: $font-middle;;
 }
 
 .infoSection {
   color: white;
-  background-color: #00b6ff;
+  background-color: $blue;
   display: grid;
 }
 
@@ -209,77 +223,59 @@ body {
   width: 53px;
   align-self: start;
   grid-area: 1 / 1;
-  background-color: #00abf0;
+  background-color: $middle-blue;
   border: none;
   cursor: pointer;
-}
-
-.infoButton:focus {
-  outline: none;
-}
-
-.infoButton:hover {
-  background-color: #059ce2;
-}
-
-.infoButton h3 {
-  font-size: 1.6rem;
-  font-family: serif;
-  font-weight: normal;
-  color: white
+  h3 {
+    font-size: 1.6rem;
+    font-family: serif;
+    font-weight: normal;
+    color: white 
+  }
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: $deep-blue;
+  }
 }
 
 .infoText {
-  height: 100%;
-  width: 100%;
+  @include full-size;
   align-self: center;
-  display: grid;
-  align-items: center;
-  justify-items: center;
   grid-area: 1 / 1;
+  @include center-position;
 }
 
 .infoWindow {
   background-color: white;
-  width: 100%;
-  height: 100%;
+  @include full-size;
   z-index: 1;
   position: absolute;
   padding: 20px;
-}
-
-.hidden {
-  display: none;
-}
-
-.active {
-  display: initial;
-}
-
-.infoWindow p {
-  height: 34px;
-  width: 78%;
-  font-size: 0.9rem;
-  font-family: serif;
-  margin-top: 34px;
-  font-weight: bold;
-  color: #757575;
+  p {
+    height: 34px;
+    width: 78%;
+    font-size: $font-middle;
+    font-family: serif;
+    margin-top: 34px;
+    font-weight: bold;
+    color: $header-menu-font-dark;
+  }
 }
 
 .returnButton {
   font-family: monospace;
   font-size: 1rem;
-  color: #9e9fa0d6;
+  color: $header-menu-font-dark;
   background-color: transparent;
   border: none;
-}
-
-.returnButton:focus {
-  outline: none;
-}
-
-.returnButton:hover {
-  color: #676768d6;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    color: $header-menu-font-light;
+  }
 }
 
 .lightsConstructorSection {
@@ -295,19 +291,16 @@ body {
 .lightsTypes {
   width: 80%;
   height: 88%;
-  border-radius: 5px;
+  border-radius: $border-big;
   background-image: url('./pictures/light.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  @include cover-background-image;
   position: relative;
   overflow: hidden;
-  transition: ease-in-out 0.3s;
-}
-
-.lightsTypes:hover {
-  height: 98%;
-  width: 92%;
+  transition: $transition;
+  &:hover {
+    height: 98%;
+    width: 92%;
+  }
 }
 
 .lightsTypesName {
@@ -316,42 +309,32 @@ body {
   position: absolute;
   bottom: 0;
   background-color: rgba(14, 14, 14, 0.5);
-  display: grid;
-  justify-items: center;
-  align-items: center;
-}
-
-.lightsTypesName p {
-  color: white;
-  font-size: 0.8rem;
+  @include center-position;
+  p {
+    color: white;
+    font-size: $font-small;
+  }
 }
 
 .lightsTypesCheckbox {
   position: absolute;
   top: 5px;
   right: 5px;
-  background-color: #00abf0;
+  background-color: $middle-blue;
   width: 18px;
   height: 18px;
-  border-radius: 3px;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-}
-
-.lightsTypesCheckboxHidden {
-  display: none;
-}
-
-.lightsTypesCheckbox p {
-  color: white;
-  font-family: monospace;
+  border-radius: $border-small;
+  @include center-position;
+  p {
+    color: white;
+    font-family: monospace;
+  }
 }
 
 .sliderSection {
   display: grid;
   justify-items: center;
-  height: 438px;
+  height: $app-height;
 }
 
 .sliderWrapper {
@@ -368,23 +351,18 @@ body {
 .imageWrapper {
   height: 100%;
   width: 33.3%;
-}
-
-.imageWrapper img {
-  width: 100%;
-  border-radius: 5px;
-  animation: Opacity 0.5s ease-in-out;
+  img {
+    width: 100%;
+    border-radius: $border-big;
+  }
 }
 
 .sliderNavWrapper {
   z-index: 1;
+  @include center-position;
   grid-area: 1 / 1 / 2 / 2;
-  display: grid;
-  align-items: center;
-  justify-content: center;
   padding-top: 63%;
-  width: 100%;
-  height: 100%;
+  @include full-size;
 }
 
 .sliderNav {
@@ -393,17 +371,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  p:hover {
+    cursor: pointer;
+  }
 }
 
 .sliderNavDefault {
   width: 9px;
   height: 9px;
   border: 2px solid white;
-  border-radius: 3px;
-}
-
-.sliderNav p:hover {
-  cursor: pointer;
+  border-radius: $border-small;
 }
 
 .sliderNavActive {
@@ -423,47 +400,44 @@ body {
   margin: 0 auto;
   width: 94%;
   height: 100%;
-  display: grid;
+  @include center-position;
   grid-template: 1fr / repeat(8, 1fr);
-  justify-items: center;
-  align-items: center;
 }
 
 .footerListItem {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  border-right: 1px solid rgba(131, 130, 130, 0.3);
-  color: black;
-}
-
-.footerListItem:hover {
-  background-color: #00b6ff;
-  color: white;
-}
-
-.footerListItem:first-child {
-  border-left: 1px solid rgba(131, 130, 130, 0.3);
-}
-
-.footerListItem {
-  border-bottom: 3px solid #ff8182;
+  @include full-size;
+  @include center-position;
+  border-right: $general-border;
+  border-bottom: $border-small solid $red;
   cursor: pointer;
+  color: black;
+  p {
+    width: 70%;
+    text-align: center;
+    line-height: 0.9rem;
+  }
+  &:hover {
+    background-color: $blue;
+    color: white;
+  }
+  &:first-child {
+    border-left: $general-border;
+  }
 }
 
 .footerListItemSelected{
-  border-bottom: 3px solid #00abf0;
+  border-bottom: $border-small solid $middle-blue;
 }
 
 .footerListItemActive {
   color: white;
-  background-color: #00abf0;
+  background-color: $middle-blue;
 }
 
-.footerListItem p {
-  width: 70%;
-  text-align: center;
-  line-height: 0.9rem;
+.hidden {
+  display: none;
+}
+
+.active {
+  display: initial;
 }
