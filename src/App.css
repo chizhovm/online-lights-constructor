@@ -235,15 +235,13 @@ body {
   padding: 20px;
 }
 
-.infoWindowHidden {
+.hidden {
   display: none;
 }
 
-.infoWindowActive {
+.active {
   display: initial;
 }
-
-
 
 .infoWindow p {
   height: 34px;

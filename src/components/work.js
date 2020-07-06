@@ -1,7 +1,7 @@
 import React from 'react';
-import DataSection from './dataSection';
-import InfoSection from './infoSection';
-import LightsConstructorSection from './lightsConstructorSection';
+import DataSection from './data-section';
+import InfoSection from './info-section';
+import LightsConstructorSection from './lights-constructor-section';
 
 const Work = (props) => {
   return (

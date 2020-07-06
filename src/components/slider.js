@@ -24,7 +24,7 @@ const Slider = (props) => {
 
   console.log(sliderNav);
  
-  return (
+  return (  
     <div className = 'sliderSection'>
       <div className = 'sliderWrapper'>
         <div className = 'slider'>
